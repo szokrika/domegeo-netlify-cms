@@ -37,13 +37,31 @@ export default class Index extends React.Component {
     return (
       <Layout>
         <section className="section">
+        <div
+            className="full-width-image-container margin-top-0"
+            style={{
+              backgroundImage: `url(/img/hero.jpg)`,
+            }}
+          >
+            <h2
+              className="has-text-weight-bold is-size-1"
+              style={{
+                boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
+                backgroundColor: '#f40',
+                color: 'white',
+                padding: '1rem',
+              }}
+            >
+              Contact Us
+            </h2>
+          </div>
           <div className="container">
             <div className="content">
               <h1>Contact</h1>
               <form
                 name="contact"
                 method="post"
-                action="/contact/thanks/"
+                action="/contact-us/thanks/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
