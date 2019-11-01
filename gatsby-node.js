@@ -2,6 +2,26 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+
+exports.onCreateWebpackConfig = ({
+  stage,
+  getConfig,
+  rules,
+  loaders,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    externals: ['canvas'],
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      plugins: [new DirectoryNamedWebpackPlugin({
+        exclude: /node_modules/
+      })],
+    },
+  });
+};
+
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions

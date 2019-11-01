@@ -25,19 +25,32 @@ description: >-
   roasting and brewing seriously and we’re glad to pass that knowledge to
   anyone.
 intro:
-  blurbs:
-    - image: /img/water-supply.jpg
-      text: Water Supply
-    - image: /img/environmental.jpg
-      text: Environmental & Regulatory
-    - image: /img/resource-exploration.jpg
-      text: Resource Exploration
-    - image: /img/os-mining.jpg
-      text: Mining
-    - image: /img/water-hub.jpg
-      text: Civil Infrastructure
   heading: Our Services
   description: DESCRIPTION
+services:
+  - image: /img/water-supply.jpg
+    text: Water Supply
+  - image: /img/environmental.jpg
+    text: Environmental & Regulatory
+  - image: /img/resource-exploration.jpg
+    text: Resource Exploration
+  - image: /img/os-mining.jpg
+    text: Mining
+  - image: /img/water-hub.jpg
+    text: Civil Infrastructure
+partners:
+  - image: /img/water-supply.jpg
+    text: Water Supply
+    link:
+    - url: http://link.com
+      label: test
+news:
+  - image: /img/water-supply.jpg
+    title: title
+    text: text
+    link:
+    - url: http://link.com
+      label: test
 main:
   heading: Great coffee with no compromises
   description: >

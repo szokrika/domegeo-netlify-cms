@@ -1,10 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Layout, { Container } from '../components/layout/layout';
+import Box from '../components/box/box';
+import Title, { P } from '../components/title/title';
+import Gallery from '../components/gallery/gallery';
+import Hero from '../components/hero/hero';
+import Partners from '../components/partners/partners';
+import News from '../components/news/news';
 
-import Layout from '../components/Layout'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
 
 export const IndexPageTemplate = ({
   image,
@@ -14,105 +17,100 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
-}) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        { title && <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>}
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
-      </div>
-    </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/services">
-                      Our Services
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-)
+  services,
+  news,
+  partners,
+}) => {
+
+  console.log('news', news )
+
+  return(
+    <Layout data={{ title }}>
+      <Hero effects image={image} className="home-hero" />
+      <Container full>
+        <Container>
+          <Title height="100px" as="h1" size="large" center border>
+            {mainpitch.title}
+          </Title>
+          <Box padding="50px 15px">
+            <P>
+              {mainpitch.description}
+            </P>
+          </Box>
+        </Container>
+
+        <Title height="100px" as="h2" size="large" center>
+          Our Services
+        </Title>
+        {services && <Gallery items={services} />}
+      </Container>
+
+      <Container color="#eee" full bottom="30px">
+        <Box padding="25px 15px">
+          <Title height="70px" as="h3" size="medium">
+            Our Partners
+          </Title>
+          <P>
+            Dome GeoConsulting Inc. has developed professional partnerships with
+            consultants and experts from other disciplines for collaboration by
+            choice and opportunity.
+          </P>
+          <P>
+            Each partner is independent; none of the companies hold any interest
+            or shares in the other partners.
+          </P>
+          {partners && <Partners items={partners} />}
+        </Box>
+      </Container>
+      <Container bottom="30px 15px" full>
+        {news && <News items={news} />}
+      </Container>
+    </Layout>
+    // <div>
+    //   <Hero effects image={image} className="home-hero" />
+    //   <section className="section section--gradient">
+    //     <div className="container">
+    //       <div className="section">
+    //         <div className="columns">
+    //           <div className="column is-10 is-offset-1">
+    //             <div className="content">
+    //               <div className="content">
+    //                 <div className="tile">
+    //                   <h1 className="title">{mainpitch.title}</h1>
+    //                 </div>
+    //                 <div className="tile">
+    //                   <h3 className="subtitle">{mainpitch.description}</h3>
+    //                 </div>
+    //               </div>
+    //               <div className="columns">
+    //                 <div className="column is-12">
+    //                   <h3 className="has-text-weight-semibold is-size-2">
+    //                     {heading}
+    //                   </h3>
+    //                   {/* <p>{description}</p> */}
+    //                 </div>
+    //               </div>
+    //               <Gallery items={intro.blurbs} />
+    //               <Partners items={intro.blurbs} />
+    //               <div className="column is-12">
+    //                 <h3 className="has-text-weight-semibold is-size-2">
+    //                   Latest stories
+    //               </h3>
+    //                 {/* <BlogRoll /> */}
+    //                 {/* <div className="column is-12 has-text-centered">
+    //                   <Link className="btn" to="/blog">
+    //                     Read more
+    //                 </Link>
+    //                 </div> */}
+    //               </div>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </section>
+    // </div>
+  )}
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -121,16 +119,13 @@ IndexPageTemplate.propTypes = {
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
   description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
 }
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
+
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -139,8 +134,11 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        services={frontmatter.services}
+        partners={frontmatter.partners}
+        news={frontmatter.news}
       />
-    </Layout>
+
   )
 }
 
@@ -158,7 +156,6 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
@@ -166,6 +163,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        title
         heading
         subheading
         mainpitch {
@@ -174,18 +172,43 @@ export const pageQuery = graphql`
         }
         description
         intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
           heading
           description
+        }
+        services {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 240, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          text
+        }
+        partners {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 240, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          text
+        }
+        news {
+          image {
+            childImageSharp {
+              fixed(width: 140, height: 140) {
+                ...GatsbyImageSharpFixed_withWebp
+              }
+            }
+          }
+          title
+          text
+          link {
+            url
+            label
+          }
         }
       }
     }

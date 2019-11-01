@@ -7,6 +7,41 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-webpack-size',
+    // {
+    //   resolve: 'gatsby-plugin-favicon',
+    //   options: {
+    //     logo: './src/components/layout/icon.png',
+    //     // WebApp Manifest Configuration
+    //     appName: null, // Inferred with your package.json
+    //     appDescription: null,
+    //     developerName: null,
+    //     developerURL: null,
+    //     dir: 'auto',
+    //     lang: 'en-US',
+    //     background: '#fff',
+    //     theme_color: '#fff',
+    //     display: 'standalone',
+    //     orientation: 'any',
+    //     start_url: '/?homescreen=1',
+    //     version: '1.0',
+
+    //     icons: {
+    //       android: true,
+    //       appleIcon: true,
+    //       appleStartup: true,
+    //       coast: false,
+    //       favicons: true,
+    //       firefox: true,
+    //       opengraph: false,
+    //       twitter: false,
+    //       yandex: false,
+    //       windows: false,
+    //     },
+    //   },
+    // },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -57,6 +92,15 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-133282546-1',
+        // Puts tracking script in the head instead of the body
+        head: true,
+        cookieDomain: 'domegeo.ca',
       },
     },
     {

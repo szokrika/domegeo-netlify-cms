@@ -7,7 +7,7 @@ import Testimonials from '../components/Testimonials'
 import Pricing from '../components/Pricing'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const ServicePageTemplate = ({
+export const ServicesPageTemplate = ({
   image,
   title,
   heading,
@@ -104,7 +104,7 @@ export const ServicePageTemplate = ({
   </div>
 )
 
-ServicePageTemplate.propTypes = {
+ServicesPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
@@ -133,7 +133,7 @@ const ServicePage = ({ data }) => {
 
   return (
     <Layout>
-      <ServicePageTemplate
+      <ServicesPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
