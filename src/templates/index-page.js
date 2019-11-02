@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Markdown from 'react-markdown';
 import Layout, { Container } from '../components/layout/layout';
 import Box from '../components/box/box';
 import Title, { P } from '../components/title/title';
@@ -33,9 +34,12 @@ export const IndexPageTemplate = ({
             {mainpitch.title}
           </Title>
           <Box padding="50px 15px">
-            <P>
-              {mainpitch.description}
-            </P>
+          <Markdown
+              source={mainpitch.description}
+              renderers={{
+                paragraph: P
+              }}
+            />
           </Box>
         </Container>
 
@@ -66,50 +70,6 @@ export const IndexPageTemplate = ({
         {news && <News items={news} />}
       </Container>
     </Layout>
-    // <div>
-    //   <Hero effects image={image} className="home-hero" />
-    //   <section className="section section--gradient">
-    //     <div className="container">
-    //       <div className="section">
-    //         <div className="columns">
-    //           <div className="column is-10 is-offset-1">
-    //             <div className="content">
-    //               <div className="content">
-    //                 <div className="tile">
-    //                   <h1 className="title">{mainpitch.title}</h1>
-    //                 </div>
-    //                 <div className="tile">
-    //                   <h3 className="subtitle">{mainpitch.description}</h3>
-    //                 </div>
-    //               </div>
-    //               <div className="columns">
-    //                 <div className="column is-12">
-    //                   <h3 className="has-text-weight-semibold is-size-2">
-    //                     {heading}
-    //                   </h3>
-    //                   {/* <p>{description}</p> */}
-    //                 </div>
-    //               </div>
-    //               <Gallery items={intro.blurbs} />
-    //               <Partners items={intro.blurbs} />
-    //               <div className="column is-12">
-    //                 <h3 className="has-text-weight-semibold is-size-2">
-    //                   Latest stories
-    //               </h3>
-    //                 {/* <BlogRoll /> */}
-    //                 {/* <div className="column is-12 has-text-centered">
-    //                   <Link className="btn" to="/blog">
-    //                     Read more
-    //                 </Link>
-    //                 </div> */}
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </section>
-    // </div>
   )}
 
 IndexPageTemplate.propTypes = {
