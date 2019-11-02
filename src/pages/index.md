@@ -26,7 +26,7 @@ description: >-
   anyone.
 intropartners:
   heading: Our Partners
-  description: 
+  description: ''
 partners:
   - image: /img/terraproltd.jpg
     link:
@@ -55,7 +55,7 @@ partners:
     text: NORTH AMERICA’S LEADING SPILL RESPONSE AND ENVIRONMENTAL PROFESSIONALS
 introservices:
   heading: Our Services
-  description: 
+  description: ''
 services:
   - image: /img/water-supply.jpg
     text: Water Supply
@@ -69,7 +69,7 @@ services:
     text: Civil Infrastructure
 intronews:
   heading: Latest News
-  description: 
+  description: ''
 news:
   - link:
       label: >-

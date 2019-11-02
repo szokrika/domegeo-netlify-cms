@@ -3,11 +3,11 @@ import MEDIA from '../../helpers/mediaTemplates';
 
 export const Paragraph = styled.p`
   line-height: 1.5em;
+  margin-bottom: 1rem;
   font-family: 'Calibri', Arial, sans-serif;
   font-display: auto;
   font-weight: ${props => (props.bold ? 'bold' : 'normal')};
   font-size: ${({ size }) => () => {
-    console.log('size', size)
     switch (size) {
       case 'large':
         return '1.8rem';

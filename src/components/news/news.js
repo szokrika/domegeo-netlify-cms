@@ -8,7 +8,6 @@ import Link from '../link/link';
 import NewsItem, {NewsBox, NewsContent } from './news.css';
 
 const News = ({ items }) => {
-  console.log('news items', items)
   return (
     <NewsBox style={{padding:"0"}}>
       {items &&
