@@ -6,7 +6,7 @@ import Content, { HTMLContent } from '../components/Content'
 
 export const AboutPageTemplate = ({ title, content, image, subheading, contentComponent }) => {
   const PageContent = contentComponent || Content
-  console.log('---------- >', image, subheading, contentComponent)
+
   return (
     <div>
       {image && <div
