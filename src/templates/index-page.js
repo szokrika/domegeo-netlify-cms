@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import Layout, { Container } from '../components/layout/layout';
@@ -24,16 +24,16 @@ export const IndexPageTemplate = ({
   intronews,
   news,
 }) => {
-  return(
+  return (
     <Layout data={{ title }}>
-      <Hero effects image={image} className="home-hero" />
+      {image && <Hero effects image={image} className="home-hero" />}
       <Container full>
         <Container>
           <Title height="100px" as="h1" size="large" center border>
             {mainpitch.title}
           </Title>
           <Box padding="50px 15px">
-          <Markdown
+            <Markdown
               source={mainpitch.description}
               renderers={{
                 paragraph: P
@@ -41,20 +41,20 @@ export const IndexPageTemplate = ({
             />
           </Box>
         </Container>
-      {services.length > 0 && 
-      <Fragment>
-        <Title height="100px" as="h2" size="large" center>
-          {introservices.heading}
-        </Title>
-        {introservices.description && <Markdown
-          source={introservices.description}
-          renderers={{
-            paragraph: P
-          }}
-        />}
-        {services && <Gallery items={services} />}
-        </Fragment>
-      }
+        {services.length > 0 &&
+          <Fragment>
+            <Title height="100px" as="h2" size="large" center>
+              {introservices.heading}
+            </Title>
+            {introservices.description && <Markdown
+              source={introservices.description}
+              renderers={{
+                paragraph: P
+              }}
+            />}
+            {services && <Gallery items={services} />}
+          </Fragment>
+        }
       </Container>
 
       <Container color="#eee" full bottom="30px">
@@ -84,7 +84,8 @@ export const IndexPageTemplate = ({
         {news && <News items={news} />}
       </Container>
     </Layout>
-  )}
+  )
+}
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
