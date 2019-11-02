@@ -5,7 +5,7 @@ image: /img/hero.jpg
 heading: HEADING
 subheading: SUBHEADING
 mainpitch:
-  title: Welcome to Dome GeoConsultingWhy Kaldi
+  title: Welcome to Dome GeoConsulting
   description: >
     Dome GeoConsulting Inc. is based in Calgary, Alberta, providing high-level
     professional expertise in hydrogeology, applied geology, and project
