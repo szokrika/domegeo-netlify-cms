@@ -4,17 +4,17 @@ import BackgroundImage from 'gatsby-background-image';
 import { Container } from './hero.css';
 
 const Hero = ({ children, image, className, type, effects }) => {
-  const imageData = image.childImageSharp.fluid;
+  const imageData = image && image.childImageSharp && image.childImageSharp.fluid;
   return (
     <Container style={{ minHeight: '300px' }} type={type} effects={effects}>
-      <BackgroundImage
+      {imageData && <BackgroundImage
         Tag="section"
         className={className}
         fluid={imageData}
         backgroundColor={'#040e18'}
       >
         {children}
-      </BackgroundImage>
+      </BackgroundImage>}
     </Container>
   );
 };
