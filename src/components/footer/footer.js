@@ -34,8 +34,8 @@ function Footer({ logo, title }) {
             </OutboundLink>
           </div>
         </div>
-        <P className="copy">
-          {`${new Date().getFullYear()} domegeo.ca. All rights reserved.`}
+        <P size="small" className="copy">
+          &copy; {`${new Date().getFullYear()} domegeo.ca. All rights reserved.`}
         </P>
       </Container>
     </FooterContainer>

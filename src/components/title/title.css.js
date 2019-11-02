@@ -7,6 +7,7 @@ export const Paragraph = styled.p`
   font-display: auto;
   font-weight: ${props => (props.bold ? 'bold' : 'normal')};
   font-size: ${({ size }) => () => {
+    console.log('size', size)
     switch (size) {
       case 'large':
         return '1.8rem';
@@ -51,26 +52,26 @@ export const Text = styled.span`
   font-size: ${({ size }) => () => {
     switch (size) {
       case 'large':
-        return '3.6rem';
+        return '2.4rem';
       case 'medium':
-        return '3.0rem';
+        return '2.2rem';
       case 'small':
-        return '1.6rem';
-      default:
         return '2rem';
+      default:
+        return '1.8rem';
     }
   }};
   ${MEDIA.TABLET`
     font-size: ${({ size }) => () => {
       switch (size) {
         case 'large':
-          return '2.6rem';
-        case 'medium':
-          return '2.4rem';
-        case 'small':
-          return '1.6rem';
-        default:
-          return '2rem';
+        return '2rem';
+      case 'medium':
+        return '1.8rem';
+      case 'small':
+        return '1.4rem';
+      default:
+        return '1.2rem';
       }
     }};
   `};

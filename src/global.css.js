@@ -37,7 +37,7 @@ export default createGlobalStyle`
   body {
     font-family: -apple-system,BlinkMacSystemFont,"Calibri","Open Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     line-height: 1;
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-display: auto;
     color: #000;
     background-color: #fff;

@@ -5,7 +5,6 @@ import { PartnersContainer } from './partners.css';
 import Item from './item/item';
 
 const Partners = ({ items }) => {
-  console.log('------- items --------->', items);
   return (
     <PartnersContainer>
       {items.map(item => (

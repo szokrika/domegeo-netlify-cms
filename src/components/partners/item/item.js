@@ -7,7 +7,7 @@ import { ItemContainer } from './item.css';
 const Item = ({ item: { text, image, link } }) => {
   return (
     <ItemContainer>
-      <OutboundLink href={link}>
+      <OutboundLink href={link.url}>
         <Img fluid={image ? image.childImageSharp.fluid : {}} alt={text} />
       </OutboundLink>
     </ItemContainer>

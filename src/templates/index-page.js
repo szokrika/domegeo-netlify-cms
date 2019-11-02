@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import Layout, { Container } from '../components/layout/layout';
@@ -17,14 +17,13 @@ export const IndexPageTemplate = ({
   subheading,
   mainpitch,
   description,
-  intro,
+  introservices,
   services,
-  news,
+  intropartners,
   partners,
+  intronews,
+  news,
 }) => {
-
-  console.log('news', news )
-
   return(
     <Layout data={{ title }}>
       <Hero effects image={image} className="home-hero" />
@@ -42,31 +41,46 @@ export const IndexPageTemplate = ({
             />
           </Box>
         </Container>
-
+      {services.length > 0 && 
+      <Fragment>
         <Title height="100px" as="h2" size="large" center>
-          Our Services
+          {introservices.heading}
         </Title>
+        {introservices.description && <Markdown
+          source={introservices.description}
+          renderers={{
+            paragraph: P
+          }}
+        />}
         {services && <Gallery items={services} />}
+        </Fragment>
+      }
       </Container>
 
       <Container color="#eee" full bottom="30px">
         <Box padding="25px 15px">
           <Title height="70px" as="h3" size="medium">
-            Our Partners
+            {intropartners.heading}
           </Title>
-          <P>
-            Dome GeoConsulting Inc. has developed professional partnerships with
-            consultants and experts from other disciplines for collaboration by
-            choice and opportunity.
-          </P>
-          <P>
-            Each partner is independent; none of the companies hold any interest
-            or shares in the other partners.
-          </P>
+          {intropartners.description && <Markdown
+            source={intropartners.description}
+            renderers={{
+              paragraph: P
+            }}
+          />}
           {partners && <Partners items={partners} />}
         </Box>
       </Container>
       <Container bottom="30px 15px" full>
+        <Title height="70px" as="h3" size="medium">
+          {intronews.heading}
+        </Title>
+        {intronews.description && <Markdown
+          source={intronews.description}
+          renderers={{
+            paragraph: P
+          }}
+        />}
         {news && <News items={news} />}
       </Container>
     </Layout>
@@ -85,20 +99,20 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-        services={frontmatter.services}
-        partners={frontmatter.partners}
-        news={frontmatter.news}
-      />
-
+    <IndexPageTemplate
+      image={frontmatter.image}
+      title={frontmatter.title}
+      heading={frontmatter.heading}
+      subheading={frontmatter.subheading}
+      mainpitch={frontmatter.mainpitch}
+      description={frontmatter.description}
+      introservices={frontmatter.introservices}
+      services={frontmatter.services}
+      intropartners={frontmatter.intropartners}
+      partners={frontmatter.partners}
+      news={frontmatter.news}
+      intronews={frontmatter.intronews}
+    />
   )
 }
 
@@ -131,7 +145,7 @@ export const pageQuery = graphql`
           description
         }
         description
-        intro {
+        introservices {
           heading
           description
         }
@@ -145,6 +159,10 @@ export const pageQuery = graphql`
           }
           text
         }
+        intropartners {
+          heading
+          description
+        }
         partners {
           image {
             childImageSharp {
@@ -154,6 +172,14 @@ export const pageQuery = graphql`
             }
           }
           text
+          link {
+            url
+            label
+          }
+        }
+        intronews {
+          heading
+          description
         }
         news {
           image {

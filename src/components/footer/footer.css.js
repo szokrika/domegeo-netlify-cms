@@ -70,16 +70,11 @@ export const FooterContainer = styled.footer`
       filter: opacity(1) grayscale(100%) brightness(1.8);
     }
   }
-  p.copy {
-    color: white;
+  
+  .copy {
     display: block;
     padding: 1rem 0;
     margin-bottom: 1rem;
     color: #818c98;
-    &:before {
-      content: '\00a9';
-      display: inline-block;
-      padding-right: 3px;
-    }
   }
 `;

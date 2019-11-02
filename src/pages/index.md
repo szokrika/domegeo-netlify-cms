@@ -24,9 +24,9 @@ description: >-
   java’s origin and support the farmers that grew it. We take coffee production,
   roasting and brewing seriously and we’re glad to pass that knowledge to
   anyone.
-intro:
-  heading: Our Services
-  description: DESCRIPTION
+intropartners:
+  heading: Our Partners
+  description: 
 partners:
   - image: /img/terraproltd.jpg
     link:
@@ -53,6 +53,9 @@ partners:
       label: SWAT
       url: 'https://www.swat-ab.ca/'
     text: NORTH AMERICA’S LEADING SPILL RESPONSE AND ENVIRONMENTAL PROFESSIONALS
+introservices:
+  heading: Our Services
+  description: 
 services:
   - image: /img/water-supply.jpg
     text: Water Supply
@@ -64,6 +67,9 @@ services:
     text: Mining
   - image: /img/water-hub.jpg
     text: Civil Infrastructure
+intronews:
+  heading: Latest News
+  description: 
 news:
   - link:
       label: >-

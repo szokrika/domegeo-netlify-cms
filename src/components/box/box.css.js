@@ -22,10 +22,7 @@ export const Container = styled.div`
       margin-top: 2em;
       margin-bottom: 1em;
     }
-    p {
-      font-size: 2rem;
-      line-height: 1.2;
-    }
+   
     > ul {
       padding-left: 1em;
       > li {

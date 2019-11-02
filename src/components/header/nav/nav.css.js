@@ -18,8 +18,11 @@ export const Container = styled.nav`
     `};
     li {
       text-transform: uppercase;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
 
+      ${MEDIA.MIN_TABLET`
+      font-size: 1rem;
+    `};
       &.home {
         display: none;
         ${MEDIA.MIN_TABLET`
